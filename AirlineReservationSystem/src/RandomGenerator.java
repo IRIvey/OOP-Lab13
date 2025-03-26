@@ -2,10 +2,9 @@ import java.util.Random;
 
 public class RandomGenerator {
 
-    //        ************************************************************ Fields ************************************************************
 
     private String randomNum;
-    /*  City name is at the 0-index, its latitude is on the 1-index and longitude on the 2-index*/
+
     private static final String[][] destinations = {
             {"Karachi", "24.871940", "66.988060"}, {"Bangkok", "13.921430", "100.595337"}, {"Jakarta", "-6.174760", "106.827072"},
             {"Islamabad", "33.607587", "73.100316"}, {"New York City", "40.642422", "-73.781749"}, {"Lahore", "31.521139", "74.406519"},
@@ -24,10 +23,7 @@ public class RandomGenerator {
             {"Berlin", "52.554316", "13.291213"}, {"Paris", "48.999560", "2.539274"}, {"Dubai", "25.249869", "55.366483"}
     };
 
-    //        ************************************************************ Behaviours/Methods ************************************************************
 
-
-    /* Generates Random ID for the Customers....*/
     public void randomIDGen() {
         Random rand = new Random();
         String randomID = Integer.toString(rand.nextInt(1000000));
@@ -38,7 +34,6 @@ public class RandomGenerator {
         setRandomNum(randomID);
     }
 
-    /*This method sets the destinations for each of the flights from the above destinations randomly.....*/
     public String[][] randomDestinations() {
         Random rand = new Random();
         int randomCity1 = rand.nextInt(destinations.length);
@@ -62,7 +57,7 @@ public class RandomGenerator {
         return chosenDestinations;
     }
 
-    /*Generates the Random Number of Seats for each flight*/
+
     public int randomNumOfSeats() {
         Random random = new Random();
         int numOfSeats = random.nextInt(500);
@@ -72,7 +67,7 @@ public class RandomGenerator {
         return numOfSeats;
     }
 
-    /*Generates the Unique Flight Number....*/
+
     public String randomFlightNumbGen(int uptoHowManyLettersRequired, int divisible) {
         Random random = new Random();
         StringBuilder randomAlphabets = new StringBuilder();
@@ -83,7 +78,6 @@ public class RandomGenerator {
         return randomAlphabets.toString();
     }
 
-    //        ************************************************************ Setters & Getters ************************************************************
 
     public void setRandomNum(String randomNum) {
         this.randomNum = randomNum;
