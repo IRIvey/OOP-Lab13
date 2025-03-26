@@ -2,8 +2,7 @@ import java.util.*;
 
 public class Customer {
 
-    // ************************************************************ Fields
-    // ************************************************************
+
     private final String userID;
     private String email;
     private String name;
@@ -15,9 +14,7 @@ public class Customer {
     public List<Integer> numOfTicketsBookedByUser;
     public static final List<Customer> customerCollection = User.getCustomersCollection();
 
-    // ************************************************************
-    // Behaviours/Methods
-    // ************************************************************
+
 
     Customer() {
         this.userID = null;
@@ -29,17 +26,7 @@ public class Customer {
         this.age = 0;
     }
 
-    /**
-     * Registers new customer to the program. Obj of RandomGenerator(Composition) is
-     * being used to assign unique userID to the newly created customer.
-     *
-     * @param name     name of the customer
-     * @param email    customer's email
-     * @param password customer's account password
-     * @param phone    customer's phone-number
-     * @param address  customer's address
-     * @param age      customer's age
-     */
+
     Customer(String name, String email, String password, String phone, String address, int age) {
         RandomGenerator random = new RandomGenerator();
         random.randomIDGen();
@@ -54,13 +41,7 @@ public class Customer {
         this.numOfTicketsBookedByUser = new ArrayList<>();
     }
 
-    /**
-     * Takes input for the new customer and adds them to programs memory.
-     * isUniqueData() validates the entered email
-     * and returns true if the entered email is already registered. If email is
-     * already registered, program will ask the user
-     * to enter new email address to get himself register.
-     */
+
     public void addNewCustomer() {
         System.out.printf("\n\n\n%60s ++++++++++++++ Welcome to the Customer Registration Portal ++++++++++++++", "");
         Scanner read = new Scanner(System.in);
@@ -85,25 +66,13 @@ public class Customer {
         customerCollection.add(new Customer(name, email, password, phone, address, age));
     }
 
-    /**
-     * Returns String consisting of customers data(name, age, email etc...) for
-     * displaying.
-     * randomIDDisplay() adds space between the userID for easy readability.
-     *
-     * @param i for serial numbers.
-     * @return customers data in String
-     */
+
     private String toString(int i) {
         return String.format("%10s| %-10d | %-10s | %-32s | %-7s | %-27s | %-35s | %-23s |", "", i,
                 randomIDDisplay(userID), name, age, email, address, phone);
     }
 
-    /**
-     * Searches for customer with the given ID and displays the customers' data if
-     * found.
-     *
-     * @param ID of the searching/required customer
-     */
+
     public void searchUser(String ID) {
         boolean isFound = false;
         Customer customerWithTheID = customerCollection.get(0);
